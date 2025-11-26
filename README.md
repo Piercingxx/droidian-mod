@@ -63,7 +63,6 @@ The script will clone and use the Piercing‑Dots repo during setup, then clean 
 |----------------------------------------|-------------------------------------------------------------|
 | `scripts/step-1.sh`                    | Prereqs: updates, GNOME Tweaks, Flathub, Homebrew, fonts    |
 | `scripts/apps.sh`                      | Apps & tooling: Waydroid, Neovim Nightly, Yazi (+ plugins), UFW, Proton VPN, Tailscale |
-| `scripts/synology-chat-install.sh`     | Installs Synology Chat desktop client                       |
 
 ---
 
