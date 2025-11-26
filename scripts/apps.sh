@@ -23,8 +23,7 @@ wait
     sudo apt install fwupd -y
     sudo apt install w3m -y
     sudo flatpak install flathub io.missioncenter.MissionCenter -y
-#    sudo flatpak install flathub com.nextcloud.desktopclient.nextcloud -y
-
+    brew install gum
 
 # Waydroid - check if available in apt, otherwise install from repo
     if sudo apt install waydroid -y; then
