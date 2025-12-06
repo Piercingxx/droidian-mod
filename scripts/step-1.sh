@@ -60,24 +60,35 @@ wait
 echo "Install Essentials"
     sudo apt install zip unzip gzip tar -y
     sudo apt install make -y
+    sudo apt install cmake -y
+    sudo apt install gcc -y
     sudo apt install curl -y
     sudo apt install dconf* -y
+    sudo apt install ssh -y
     sudo apt install gnome-tweaks -y
     sudo apt install papirus-icon-theme -y
-    sudo apt install neovim -y
+    sudo apt install trash-cli -y
+    sudo apt install fastfetch -y
+    sudo apt install multitail -y
+    sudo apt install tree -y
+    sudo apt install zoxide -y
+    sudo apt install fzf -y
+    sudo apt install bash-completion -y
+    sudo apt install bat -y
+    sudo apt install eza -y
     wait
-
-# Add Flathub Repo
-    flatpak remote-add --if-not-exists --subset=floss flathub-floss https://flathub.org/repo/flathub.flatpakrepo
 
 # Install Brew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # Add Brew to PATH
-    echo >> /home/droidian/.bashrc
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/droidian/.bashrc
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    sudo apt-get install build-essential -y
+    sudo apt install build-essential -y
+
+# Brew Installs
     brew install gcc
+    brew install jump
+    brew install gum
+
+# Add Flathub Repo
+    flatpak remote-add --if-not-exists --subset=floss flathub-floss https://flathub.org/repo/flathub.flatpakrepo
 
 # Installing fonts
     echo "Installing Fonts"
@@ -90,6 +101,8 @@ echo "Install Essentials"
     sudo apt install ttf-mscorefonts-installer -y
     sudo apt install fonts-terminus -y
     sudo apt install fonts-noto-color-emoji -y
+    rm FiraCode.zip Meslo.zip
+    cd "$builddir" || exit
 # Reload Font
     fc-cache -vf
     wait
@@ -101,5 +114,6 @@ echo "Install Essentials"
     sudo apt-get install wl-clipboard
     wl-paste > ~/Pictures/Screenshots/"$(date +'%Y-%m-%d_%H:%M:%S').png"
 
-
-reboot
+echo "Step 1 Complete! Press Enter to reboot"
+read -r _
+sudo reboot now

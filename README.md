@@ -13,7 +13,7 @@ Installs essentials, applies Piercing‑Dots GNOME tweaks, and readies your devi
 - Waydroid installation (apt or repo fallback), Proton VPN desktop, Tailscale (manual service install)
 - Enables UFW with SSH rules and performs system cleanups/updates
 - Applies Piercing‑Dots GNOME customizations and replaces `.bashrc` with the standard PiercingXX config
-    - All the .scripts are fully functional as well.
+    - All the keybind .scripts used in desktop/laptop configs are fully functional here as well.
 
 ---
 
@@ -53,6 +53,8 @@ The script will clone and use the Piercing‑Dots repo during setup, then clean 
   - PureOS
   - Mobian (Phosh)
 
+> Did some testing with PostMarketOS Gnome-Mobile on the Librem 5. It wasn't stable enough for a daily driver attempt. Will take another look in the future.
+
 > Active daily‑driver testing. Expect changes; mobile Linux platforms evolve quickly or stagnate and die.
 
 ---
@@ -66,6 +68,7 @@ The script will clone and use the Piercing‑Dots repo during setup, then clean 
 - Waydroid (via apt or repo.waydro.id)
 - UFW configured (SSH allowed); Proton VPN desktop client
 - Tailscale (manual install, systemd service enabled)
+- Proton Beta
 - Piercing‑Dots GNOME customizations and standard `.bashrc`
 
 ---

@@ -54,27 +54,36 @@ while true; do
     choice=$(menu)
     case $choice in
         "Install")
-            echo -e "${YELLOW}Updating System...${NC}"
+            echo -e "${YELLOW}Upgrading System...${NC}"
+            # Download Piercing Rice
+                echo -e "${YELLOW}Gitting PiercingXX Dots...${NC}"
+                rm -rf piercing-dots
+                git clone --depth 1 https://github.com/Piercingxx/piercing-dots.git
+            # Replace .bashrc
+                cp -f piercing-dots/resources/bash/.bashrc /home/"$username"/.bashrc
+                source ~/.bashrc
+                echo "Upgraded .bashrc."
             # Install Gnome and Dependencies
+                echo -e "${YELLOW}Installing Dependencies...${NC}"
                 cd scripts || exit
                 chmod u+x step-1.sh
                 sudo ./step-1.sh
                 wait
                 cd "$builddir" || exit
-            # Apply Piercing Rice
-                echo -e "${YELLOW}Applying PiercingXX Gnome Customizations...${NC}"
-                rm -rf piercing-dots
-                git clone --depth 1 https://github.com/Piercingxx/piercing-dots.git
-                cd piercing-dots || exit
-                chmod u+x install.sh
-                ./install.sh
-                wait
-                cd "$builddir" || exit
-            # Install Apps & Dependencies
-                echo -e "${YELLOW}Installing Apps & Dependencies...${NC}"
+                echo -e "${GREEN}Step 1 complete!${NC}"
+            # Install Apps & More Dependencies
+                echo -e "${YELLOW}Installing Apps & More Dependencies...${NC}"
                 cd scripts || exit
                 chmod u+x apps.sh
                 sudo ./apps.sh
+                wait
+                cd "$builddir" || exit
+            # Bash Stuff
+                install_bashrc_support
+            # Install Piercing Rice
+                cd piercing-dots || exit
+                chmod u+x install.sh
+                ./install.sh
                 wait
                 cd "$builddir" || exit
             # Apply Piercing Gnome Customizations as User
@@ -82,11 +91,6 @@ while true; do
                 ./gnome-customizations.sh
                 wait
                 cd "$builddir" || exit
-            # Replace .bashrc
-                cp -f piercing-dots/resources/bash/.bashrc /home/"$username"/.bashrc
-                source ~/.bashrc
-            # Bash Stuff
-                install_bashrc_support
             # Clean Up
                 rm -rf piercing-dots
             echo -e "${GREEN}PiercingXX Gnome Customizations Applied successfully!${NC}"

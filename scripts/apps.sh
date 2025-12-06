@@ -23,7 +23,6 @@ wait
     sudo apt install fwupd -y
     sudo apt install w3m -y
     sudo flatpak install flathub io.missioncenter.MissionCenter -y
-    brew install gum
 
 # Waydroid - check if available in apt, otherwise install from repo
     if sudo apt install waydroid -y; then
@@ -35,9 +34,14 @@ wait
         sudo apt install waydroid -y
     fi
 
-# Nvim & Depends
-    brew tap austinliuigi/brew-neovim-nightly https://github.com/austinliuigi/brew-neovim-nightly.git
-    brew install neovim-nightly
+# Install Neovim nightly arm64 from git
+    git clone https://github.com/neovim/neovim.git
+    cd neovim || exit
+    git checkout nightly
+    make CMAKE_BUILD_TYPE=Release
+    sudo make install
+    cd $builddir || exit
+# Nvim Depends
     sudo apt install lua5.4 -y
     sudo apt install python3-pip -y
     sudo apt install chafa -y
